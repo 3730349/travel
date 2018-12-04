@@ -2,7 +2,7 @@
   <div>
   <home-header></home-header>
   <home-swiper></home-swiper>
-  <div>55555</div>
+  <home-icons></home-icons>
   </div>
   
 </template>
@@ -10,6 +10,7 @@
 <script>
 import HomeHeader from './components/Header'
 import HomeSwiper from './components/Swiper'
+import HomeIcons from './components/Icons'
 (function (doc, win) {
         var docEl = doc.documentElement,
             resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -32,7 +33,8 @@ export default {
   name: 'Home',
   components: {
     HomeHeader,
-    HomeSwiper
+    HomeSwiper,
+    HomeIcons
   }
 }
 </script>
