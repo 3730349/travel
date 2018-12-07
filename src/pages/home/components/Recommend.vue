@@ -2,7 +2,7 @@
     <div>
         <div class="title">热销推荐</div>
         <ul>
-            <li class="item border-buttom" v-for="item of recommendList" :key="item.id">
+            <li class="item border-buttom" v-for="item of list" :key="item.id">
                 <img class="item-img" :src="item.imgUrl">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -16,28 +16,8 @@
 <script>
 export default {
     name:"HomeRecommend",
-    data () {
-        return {
-            recommendList:[{
-                id:"0001",
-                imgUrl:"http://img1.tcquan.cc/images/1/2018/08/XXnABJzffzB7r5v09OkoNBj7KnNR9R.jpg",
-                title:"东方闪电尽快付款",
-                desc:"士大夫"
-            },
-            {
-                id:"0002",
-                imgUrl:"http://img1.tcquan.cc/images/1/2018/08/XXnABJzffzB7r5v09OkoNBj7KnNR9R.jpg",
-                title:"东方闪电尽快付款",
-                desc:"士大夫"
-            },
-            {
-                id:"0003",
-                imgUrl:"http://img1.tcquan.cc/images/1/2018/08/XXnABJzffzB7r5v09OkoNBj7KnNR9R.jpg",
-                title:"东方闪电尽快付款",
-                desc:"士大夫"
-            }]
-        }
-
+    props: {
+        list: Array
     }
 }
 </script>

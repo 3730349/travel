@@ -2,7 +2,7 @@
     <div>
         <div class="title">周末去哪儿</div>
         <ul>
-            <li class="item border-buttom" v-for="item of recommendList" :key="item.id">
+            <li class="item border-buttom" v-for="item of list" :key="item.id">
                 <div class="item-img-wrapper">
                     <img class="item-img" :src="item.imgUrl">
                 </div>
@@ -19,29 +19,12 @@
 <script>
 export default {
     name:"HomeWeekend",
-    data () {
-        return {
-            recommendList:[{
-                id:"0001",
-                imgUrl:"https://img1.qunarzz.com/vc/a4/36/26/07c5904b545d66b3abe72e9dfa.jpg",
-                title:"东方闪电尽快付款",
-                desc:"士大夫"
-            },
-            {
-                id:"0002",
-                imgUrl:"https://img1.qunarzz.com/vc/a4/36/26/07c5904b545d66b3abe72e9dfa.jpg",
-                title:"东方闪电尽快付款",
-                desc:"士大夫"
-            },
-            {
-                id:"0003",
-                imgUrl:"https://img1.qunarzz.com/vc/a4/36/26/07c5904b545d66b3abe72e9dfa.jpg",
-                title:"东方闪电尽快付款",
-                desc:"士大夫"
-            }]
-        }
-
+    props: {
+        list: Array
     }
+    
+
+    
 }
 </script>
 <style lang="stylus" scoped>
