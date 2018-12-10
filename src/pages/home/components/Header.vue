@@ -7,10 +7,12 @@
           <span class="iconfont">&#xe643;</span>
           输入城市/景点/游玩主题
           </div>
-      <div class="header-right">
-          {{this.city}}
-          <span class="iconfont">&#xe6aa;</span>
-          </div>
+          <router-link to="/city">
+            <div class="header-right">
+            {{this.city}}
+            <span class="iconfont">&#xe6aa;</span>
+            </div>
+          </router-link>
   </div>
 </template>
 
@@ -42,7 +44,6 @@ export default {
             .back-icon
                 text-align center
                 font-size .4rem
-
         .header-input
             flex 1
             height .64rem
@@ -57,6 +58,7 @@ export default {
             width 1.24rem
             float right
             text-align center
+            color #fff
 
 
 </style>
