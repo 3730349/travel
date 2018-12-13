@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import store from './store'
 import App from './App'
 import router from './router'
 import 'reset/reset.css'
@@ -14,6 +15,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

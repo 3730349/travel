@@ -1,6 +1,6 @@
 <template>
   <div>
-  <home-header :city="city"></home-header>
+  <home-header></home-header>
   <home-swiper :list="swiperList"></home-swiper>
   <home-icons :list="iconList"></home-icons>
   <home-recommend :list="recommendList"></home-recommend>
@@ -44,7 +44,6 @@ export default {
   },
   data () {
       return {
-          city: " ",
           swiperList: [],
           iconList: [],
           recommendList: [],
@@ -53,7 +52,7 @@ export default {
   },
   methods: {
       getHomeInfo () {
-          axios.get('/static/mock/city.json')
+          axios.get('/api/city.json')
             .then(this.getHomeInfoSucc),
           axios.get('/static/mock/index.json')
             .then(this.getSwiperSucc)
@@ -62,7 +61,6 @@ export default {
           res = res.data;
           if(res.ret && res.data) {
               const data = res.data;
-              this.city = data.hotCities[0].name;
             //   this.list = data.swiperList.imgUrl;
           }
       },

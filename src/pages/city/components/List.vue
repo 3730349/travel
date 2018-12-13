@@ -5,7 +5,7 @@
                 <div class="title border-topbotom">当前城市</div>
                 <div class="botton-list">
                     <div class="botton-wrapper">
-                        <div class="botton">北京</div>
+                        <div class="botton">{{this.currentCity}}</div>
                     </div>
                 </div>
             </div>
@@ -14,7 +14,9 @@
                 <div class="botton-list">
                     <div class="botton-wrapper" 
                     v-for="item of hot" 
-                    :key="item.id">
+                    :key="item.id"
+                    @click="handleCityClik(item.name)"
+                    >
                         <div class="botton">{{item.name}}</div>
                     </div>
                 </div>
@@ -24,12 +26,15 @@
                 v-for="(item , key) of cities" 
                 :key='key'
                 :ref='key'
+                
                 >
                 <div class="title border-topbotom">{{key}}</div>
                 <div class="item-list">
                     <div class="item border-bottom" 
                     v-for="innerItem of item" 
-                    :key="innerItem.id">
+                    :key="innerItem.id"
+                    @click="handleCityClik(innerItem.name)"
+                    >
                     {{innerItem.name}}
                     </div>
                 </div>
@@ -39,6 +44,7 @@
 </template>
 <script>
 import Bscroll from 'better-scroll'
+import { mapState , mapMutations} from 'vuex'
 export default {
     name: 'CityLit',
     props: {
@@ -46,9 +52,21 @@ export default {
         cities: Object,
         letter: String
     },
+    computed: {
+        ...mapState({
+            currentCity:'city'})
+    },
+    methods: {
+        handleCityClik (city) {
+            // this.$store.commit('changeCity',city)
+            this.changeCity(city)
+            //点击跳转
+            this.$router.push('/')
+        },
+        ...mapMutations(['changeCity'])
+    },
     mounted () {
         this.scroll = new Bscroll(this.$refs.wrapper)
-
     },
     //监听， 点击右侧的字母时跳到相应的城市
     watch: {
@@ -87,6 +105,7 @@ export default {
             .border-topbotom
                 color #666
         .botton-list
+            z-index 100
             overflow hidden
             padding .1rem .6rem .1rem .1rem
 
