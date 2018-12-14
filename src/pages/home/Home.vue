@@ -16,6 +16,7 @@ import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 (function (doc, win) {
         var docEl = doc.documentElement,
             resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -44,15 +45,19 @@ export default {
   },
   data () {
       return {
+          lastCity: '',
           swiperList: [],
           iconList: [],
           recommendList: [],
           weekendList: []
       }
   },
+  computed: {
+      ...mapState(['city'])
+  },
   methods: {
       getHomeInfo () {
-          axios.get('/api/city.json')
+          axios.get('/api/city.json?city='+ this.city)
             .then(this.getHomeInfoSucc),
           axios.get('/static/mock/index.json')
             .then(this.getSwiperSucc)
@@ -77,7 +82,14 @@ export default {
       }
   },
   mounted () {
+      this.lastCity = this.city
       this.getHomeInfo()
+  },
+  activated () {
+      if(this.lastCity !== this.city) {
+          this.lastCity = this.city
+          this.getHomeInfo()
+      }
   }
 }
 </script>

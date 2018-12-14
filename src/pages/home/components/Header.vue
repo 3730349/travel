@@ -58,7 +58,7 @@ export default {
             color #ccc
         .header-right
             min-width 1.04rem
-            padding 0.1rem
+            padding 0.01rem
             float right
             text-align center
             color #fff
