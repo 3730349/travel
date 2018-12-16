@@ -60,7 +60,7 @@ export default {
             // overflow hidden
             height 0
             width 100%
-            padding-bottom 31%
+            padding-bottom 100%
             .gallary-img
                 width 100%
                 // height 100%

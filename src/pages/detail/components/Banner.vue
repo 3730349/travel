@@ -1,17 +1,19 @@
 <template>
     <div>
         <div class="banner" @click="handleBannerClick">
-            <img class='banner-img' src="http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg" alt="">
+            <img class='banner-img' :src=bannerImg>
             <div class="banner-info">
-                <div class="banner-titil">大连圣亚海洋世界(AAAA景区)</div>
+                <div class="banner-titil">
+                    {{this.sightName}}
+                </div>
                 <div class="banner-number">
                     <span class="iconfont banner-icon">&#xe643;</span>
-                    39
+                    {{this.bannerImgs.length}}
                 </div>
             </div>
         </div>
         <common-gallary 
-            :imgs='imgs' 
+            :imgs='bannerImgs' 
             v-show="showGallary"
             @close='handleGallaryClose' 
         ></common-gallary>
@@ -21,11 +23,14 @@
 import CommonGallary from 'common/gallary/Gallary'
 export default {
     name: 'DetailBanner',
+    props: {
+        sightName: String,
+        bannerImg: String,
+        bannerImgs: Array
+    },
     data () {
         return {
-            showGallary: false,
-            imgs: ['http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg',
-                'http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg']
+            showGallary: false
         }
     },
     methods: {
@@ -46,7 +51,7 @@ export default {
         position relative
         overflow hidden
         height 0
-        padding-bottom 31%
+        padding-bottom 55%
         .banner-img
             width 100%
             // height 100%
