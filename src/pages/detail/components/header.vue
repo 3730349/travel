@@ -46,6 +46,10 @@ export default {
     },
     activated () {
         window.addEventListener('scroll',this.handleScroll)
+    },
+    //清除全局绑定
+    deactivated () {
+        window.removeEventListener('scroll',this.handleScroll)
     }
 }
 </script>
@@ -65,6 +69,7 @@ export default {
             color #ffffff
             font-size .4rem
     .header-fixed
+        z-index 2
         position fixed
         left 0
         right 0
