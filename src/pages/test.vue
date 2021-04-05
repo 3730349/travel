@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div>我是新增的页面  再次进行修改</div>
+  <div>我在修改  哈哈哈哈</div>
   <home-header></home-header>
   <home-swiper :list="swiperList"></home-swiper>
   <home-icons :list="iconList"></home-icons>
