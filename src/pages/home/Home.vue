@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div>我回来啦</div>
+  <div>我回来啦66666</div>
   <home-header></home-header>
   <home-swiper :list="swiperList"></home-swiper>
   <home-icons :list="iconList"></home-icons>
