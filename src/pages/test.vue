@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div>我回来啦66666</div>
+  <div>我是新增的页面  再次进行修改</div>
   <home-header></home-header>
   <home-swiper :list="swiperList"></home-swiper>
   <home-icons :list="iconList"></home-icons>
